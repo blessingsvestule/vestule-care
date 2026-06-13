@@ -4,15 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MamaShield Baby Vaccine Tracker — Blessing's Vestule</title>
-<meta name="description" content="Free Nigerian baby vaccine tracker for working mums. Track NPI immunization schedule, get Google Calendar reminders with sound alerts."/>
+<meta name="description" content="Free Nigerian baby vaccine tracker for working mums. Track NPI immunization schedule with persistent storage."/>
 <meta name="theme-color" content="#1A6B6B"/>
-<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;MamaShield Tracker&quot;,&quot;short_name&quot;:&quot;MamaShield&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231A6B6B&quot;,&quot;theme_color&quot;:&quot;%231A6B6B&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A6B6B'/><path d='M50 15 L80 28 L80 52 C80 68 65 80 50 87 C35 80 20 68 20 52 L20 28 Z' fill='%23C4853A'/><path d='M50 20 L75 31 L75 52 C75 66 62 77 50 83 C38 77 25 66 25 52 L25 31 Z' fill='%231A6B6B'/><text x='50' y='62' font-family='Arial' font-weight='bold' font-size='28' fill='white' text-anchor='middle'>MS</text></svg>&quot;,&quot;sizes&quot;:&quot;any&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A6B6B'/><path d='M50 15 L80 28 L80 52 C80 68 65 80 50 87 C35 80 20 68 20 52 L20 28 Z' fill='%23C4853A'/><path d='M50 20 L75 31 L75 52 C75 66 62 77 50 83 C38 77 25 66 25 52 L25 31 Z' fill='%231A6B6B'/><text x='50' y='62' font-family='Arial' font-weight='bold' font-size='28' fill='white' text-anchor='middle'>MS</text></svg>"/>
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A6B6B'/><path d='M50 15 L80 28 L80 52 C80 68 65 80 50 87 C35 80 20 68 20 52 L20 28 Z' fill='%23C4853A'/><path d='M50 20 L75 31 L75 52 C75 66 62 77 50 83 C38 77 25 66 25 52 L25 31 Z' fill='%231A6B6B'/><text x='50' y='62' font-family='Arial' font-weight='bold' font-size='28' fill='white' text-anchor='middle'>MS</text></svg>"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="MamaShield"/>
 <meta name="mobile-web-app-capable" content="yes"/>
+<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;MamaShield Tracker&quot;,&quot;short_name&quot;:&quot;MamaShield&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%231A6B6B&quot;,&quot;theme_color&quot;:&quot;%231A6B6B&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231A6B6B'/%3E%3Cpath d='M50 15 L80 28 L80 52 C80 68 65 80 50 87 C35 80 20 68 20 52 L20 28 Z' fill='%23C4853A'/%3E%3Cpath d='M50 20 L75 31 L75 52 C75 66 62 77 50 83 C38 77 25 66 25 52 L25 31 Z' fill='%231A6B6B'/%3E%3Ctext x='50' y='62' font-family='Arial' font-weight='bold' font-size='28' fill='white' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;any&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;}]}"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231A6B6B'/%3E%3Cpath d='M50 15 L80 28 L80 52 C80 68 65 80 50 87 C35 80 20 68 20 52 L20 28 Z' fill='%23C4853A'/%3E%3Cpath d='M50 20 L75 31 L75 52 C75 66 62 77 50 83 C38 77 25 66 25 52 L25 31 Z' fill='%231A6B6B'/%3E%3Ctext x='50' y='62' font-family='Arial' font-weight='bold' font-size='28' fill='white' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -56,25 +55,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);
 .os-text{font-size:13px;color:var(--mid);line-height:1.5}
 .os-text strong{color:var(--dark);font-weight:600}
 .close-sheet{width:100%;padding:12px;background:var(--teal);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:.5rem}
-
-/* ── CALENDAR SOUND MODAL ── */
-#soundModal{display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.5);align-items:flex-end;justify-content:center}
-#soundModal.open{display:flex}
-.sound-sheet{background:#fff;border-radius:20px 20px 0 0;padding:1.5rem;width:100%;max-width:480px;max-height:90vh;overflow-y:auto}
-.sound-sheet h2{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--teal);margin-bottom:.25rem}
-.sound-sheet .sub{font-size:13px;color:var(--soft);margin-bottom:1rem;line-height:1.5}
-.sound-os-tab{display:flex;gap:8px;margin-bottom:1.1rem}
-.sound-os-btn{flex:1;padding:9px;border-radius:10px;border:1.5px solid var(--border);background:var(--teal-pale);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s;color:var(--mid)}
-.sound-os-btn.active{border-color:var(--gold);background:var(--gold);color:#fff}
-.sound-steps{display:none}
-.sound-steps.show{display:block}
-.sound-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;padding:10px 12px;background:var(--gold-light);border-radius:10px;border:1px solid var(--soon-border)}
-.sound-num{width:24px;height:24px;border-radius:50%;background:var(--gold);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.sound-text{font-size:13px;color:var(--mid);line-height:1.5}
-.sound-text strong{color:var(--dark);font-weight:600}
-.warning-box{background:var(--missed-bg);border:1px solid var(--missed-border);border-radius:10px;padding:10px 12px;margin-bottom:1rem;font-size:12px;color:var(--missed);line-height:1.5}
-.warning-box strong{font-weight:700}
-.close-sound{width:100%;padding:12px;background:var(--teal);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:.5rem}
 
 /* ── CONSENT ── */
 #consentScreen{max-width:480px;margin:0 auto;padding:2rem 1rem 3rem}
@@ -124,19 +104,18 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
 .gender-btn.girl.selected{border-color:var(--pink);background:var(--pink-bg);color:var(--pink)}
 .gender-btn.boy.selected{border-color:var(--blue);background:var(--blue-bg);color:var(--blue)}
 .notebox{background:var(--teal-light);border-left:3px solid var(--teal2);border-radius:0 10px 10px 0;padding:10px 14px;font-size:12px;color:var(--mid);line-height:1.55;margin-bottom:1rem}
-
-/* ── SAVE TO PHONE PROMPT in setup ── */
 .save-prompt{background:var(--gold-light);border:1.5px solid var(--soon-border);border-radius:12px;padding:1rem;margin-bottom:1rem;display:flex;gap:10px;align-items:center}
 .save-prompt-text{flex:1;font-size:13px;color:var(--mid);line-height:1.5}
 .save-prompt-text strong{color:var(--dark)}
 .save-prompt-btn{background:var(--gold);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0}
-
 .btn{width:100%;padding:14px;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s}
 .btn-teal{background:var(--teal);color:#fff;box-shadow:0 4px 16px rgba(26,107,107,.28)}
 .btn-teal:hover{background:#155858}
 .btn-teal:disabled{background:var(--soft);box-shadow:none;cursor:not-allowed}
 .btn-outline{background:transparent;color:var(--teal);border:2px solid var(--teal)}
 .btn-outline:hover{background:var(--teal-pale)}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 4px 16px rgba(196,133,58,.28)}
+.btn-gold:hover{background:#A86E28}
 
 /* ── TRACKER ── */
 #tracker{display:none}
@@ -187,26 +166,7 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
 .hosp-input:focus{border-color:var(--given);box-shadow:0 0 0 3px rgba(30,122,80,.1)}
 .hpv-note{background:var(--pink-bg);border:1px solid var(--pink-border);border-radius:10px;padding:8px 12px;margin-top:6px;font-size:11px;color:var(--pink);font-weight:500}
 
-/* ── CALENDAR SECTION ── */
-.cal-section{max-width:560px;margin:0 auto;padding:0 1rem 1rem}
-.cal-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.25rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(26,107,107,.05)}
-.cal-title{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--teal);margin-bottom:.25rem}
-.cal-sub{font-size:12px;color:var(--soft);margin-bottom:1rem;line-height:1.5}
-.gcal-list{display:flex;flex-direction:column;gap:7px;margin-bottom:1rem}
-.gcal-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--teal-pale);border:1px solid var(--border);border-radius:10px}
-.gcal-info{flex:1}
-.gcal-age{font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em}
-.gcal-date{font-size:13px;font-weight:600;color:var(--dark)}
-.gcal-btn{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s;text-decoration:none;display:inline-block}
-.gcal-btn:hover{background:#155858}
-.gcal-btn.added{background:var(--given)}
-
-/* ── SOUND REMINDER BANNER ── */
-.sound-banner{background:linear-gradient(135deg,#B85C00,#8A4400);border-radius:14px;padding:1rem;margin-bottom:1rem;display:flex;gap:10px;align-items:center}
-.sound-banner-text{flex:1;font-size:13px;color:#fff;line-height:1.5}
-.sound-banner-text strong{font-weight:700}
-.sound-banner-btn{background:#fff;color:var(--gold);border:none;border-radius:8px;padding:8px 13px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0}
-
+/* ── SUMMARY ── */
 .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:560px;margin:0 auto;padding:1rem}
 .sum{text-align:center;padding:10px 6px;border-radius:12px}
 .sum.given{background:var(--given-bg)}
@@ -217,28 +177,52 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
 .sum.missed .sum-n{color:var(--missed)}
 .sum.upcoming .sum-n{color:var(--teal)}
 .sum-l{font-size:11px;font-weight:600;color:var(--soft);margin-top:2px}
-.tracker-disclaimer{background:#f9f9f7;border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;margin:0 1rem 1rem;font-size:11px;color:var(--soft);line-height:1.6;text-align:center}
+
+/* ── LOCKED CALENDAR SECTION ── */
+.locked-section{max-width:560px;margin:0 auto;padding:0 1rem 1rem}
+.locked-card{background:linear-gradient(135deg,#1A6B6B,#0D4040);border-radius:20px;padding:1.5rem;position:relative;overflow:hidden}
+.locked-card::after{content:'🔒';position:absolute;right:-5px;top:-5px;font-size:5rem;opacity:.1}
+.locked-title{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.5rem}
+.locked-sub{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:1.25rem}
+.locked-features{display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem}
+.locked-feature{display:flex;gap:10px;align-items:center;font-size:13px;color:rgba(255,255,255,.9)}
+.locked-feature-icon{font-size:1rem;flex-shrink:0}
+.locked-blur{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:1rem;margin-bottom:1.25rem;filter:blur(2px);pointer-events:none}
+.locked-blur-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.locked-blur-row:last-child{border-bottom:none}
+.locked-blur-text{font-size:12px;color:rgba(255,255,255,.6)}
+.locked-blur-btn{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:6px;padding:5px 10px;font-size:11px}
+.unlock-btn{width:100%;padding:14px;background:#fff;color:var(--teal);border:none;border-radius:12px;font-family:'DM Serif Display',serif;font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.unlock-btn:hover{background:var(--gold-light);color:var(--gold)}
+.unlock-price{font-size:12px;color:rgba(255,255,255,.6);text-align:center;margin-top:8px}
+
+.tracker-disclaimer{background:#f9f9f7;border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;margin:0 1rem 1rem;font-size:11px;color:var(--soft);line-height:1.6;text-align:center;max-width:560px;margin-left:auto;margin-right:auto}
 .t-footer{text-align:center;font-size:11px;color:var(--soft);padding:.5rem 1rem 1rem;line-height:1.7}
+
+/* ── STORAGE NOTICE ── */
+.storage-notice{background:var(--success-bg);border:1px solid var(--given-border);border-radius:10px;padding:8px 14px;margin:0 0 1rem;font-size:12px;color:var(--given);line-height:1.5;display:none}
+.storage-notice.show{display:block}
+
 @media(max-width:440px){.field-row{grid-template-columns:1fr}.legend-inner{gap:8px}}
 </style>
 </head>
 <body>
 
-<!-- ══ INSTALL BANNER ══ -->
+<!-- INSTALL BANNER -->
 <div id="installBanner">
   <div class="install-inner">
     <div class="install-icon">📱</div>
-    <div class="install-text"><strong>Add MamaShield to your home screen</strong> for quick access anytime — no app store needed</div>
+    <div class="install-text"><strong>Save MamaShield to your home screen</strong> — your baby's data stays safe even when offline</div>
     <button class="install-btn" onclick="showSaveModal()">How to save</button>
     <button class="install-close" onclick="document.getElementById('installBanner').style.display='none'">✕</button>
   </div>
 </div>
 
-<!-- ══ SAVE TO HOME SCREEN MODAL ══ -->
+<!-- SAVE TO HOME SCREEN MODAL -->
 <div id="saveModal" onclick="if(event.target===this)closeSaveModal()">
   <div class="save-sheet">
     <h2>📱 Save MamaShield to your phone</h2>
-    <p class="sub">Save this tracker to your home screen so you can open it with one tap — just like an app. Free. No app store needed.</p>
+    <p class="sub">Save this tracker to your home screen — your baby's data stays permanently on your phone even when you close the app.</p>
     <div class="os-tab">
       <button class="os-btn active" id="osAndroid" onclick="switchOS('android')">🤖 Android</button>
       <button class="os-btn" id="osIphone" onclick="switchOS('iphone')">🍎 iPhone</button>
@@ -246,52 +230,22 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
     <div class="os-steps show" id="stepsAndroid">
       <div class="os-step"><div class="os-num">1</div><div class="os-text">Open this page in <strong>Google Chrome</strong> on your Android phone</div></div>
       <div class="os-step"><div class="os-num">2</div><div class="os-text">Tap the <strong>three dots menu (⋮)</strong> at the top right of Chrome</div></div>
-      <div class="os-step"><div class="os-num">3</div><div class="os-text">Tap <strong>"Add to Home screen"</strong> from the menu</div></div>
-      <div class="os-step"><div class="os-num">4</div><div class="os-text">Tap <strong>"Add"</strong> on the popup that appears</div></div>
-      <div class="os-step"><div class="os-num">5</div><div class="os-text">✅ Done! Look for the <strong>MamaShield 🛡️ icon</strong> on your home screen. Tap it anytime to open your tracker instantly.</div></div>
+      <div class="os-step"><div class="os-num">3</div><div class="os-text">Tap <strong>"Add to Home screen"</strong></div></div>
+      <div class="os-step"><div class="os-num">4</div><div class="os-text">Tap <strong>"Add"</strong> on the popup</div></div>
+      <div class="os-step"><div class="os-num">5</div><div class="os-text">✅ Look for the <strong>MamaShield MS shield icon</strong> on your home screen. Your baby's data is now saved permanently.</div></div>
     </div>
     <div class="os-steps" id="stepsIphone">
-      <div class="os-step"><div class="os-num">1</div><div class="os-text">Open this page in <strong>Safari</strong> on your iPhone (must be Safari, not Chrome)</div></div>
-      <div class="os-step"><div class="os-num">2</div><div class="os-text">Tap the <strong>Share button</strong> at the bottom of the screen — it looks like a box with an arrow pointing up ⬆️</div></div>
-      <div class="os-step"><div class="os-num">3</div><div class="os-text">Scroll down the share menu and tap <strong>"Add to Home Screen"</strong></div></div>
+      <div class="os-step"><div class="os-num">1</div><div class="os-text">Open this page in <strong>Safari</strong> on your iPhone</div></div>
+      <div class="os-step"><div class="os-num">2</div><div class="os-text">Tap the <strong>Share button ⬆️</strong> at the bottom of the screen</div></div>
+      <div class="os-step"><div class="os-num">3</div><div class="os-text">Scroll down and tap <strong>"Add to Home Screen"</strong></div></div>
       <div class="os-step"><div class="os-num">4</div><div class="os-text">Tap <strong>"Add"</strong> at the top right</div></div>
-      <div class="os-step"><div class="os-num">5</div><div class="os-text">✅ Done! The <strong>MamaShield 🛡️ icon</strong> now appears on your home screen. Tap it anytime.</div></div>
+      <div class="os-step"><div class="os-num">5</div><div class="os-text">✅ The <strong>MamaShield MS shield icon</strong> now appears on your home screen. Data stays saved permanently.</div></div>
     </div>
     <button class="close-sheet" onclick="closeSaveModal()">Got it — close this</button>
   </div>
 </div>
 
-<!-- ══ SOUND REMINDER MODAL ══ -->
-<div id="soundModal" onclick="if(event.target===this)closeSoundModal()">
-  <div class="sound-sheet">
-    <h2>🔔 Set your vaccine reminder with SOUND</h2>
-    <p class="sub">A silent notification is easy to miss. Follow these steps to make sure your phone makes a sound — even on silent mode.</p>
-    <div class="warning-box">⚠️ <strong>Important:</strong> There is a difference between a Google Calendar <em>notification</em> (silent banner) and an <em>alarm</em> (makes sound). You need the ALARM setting so your phone rings even if it is on silent or Do Not Disturb.</div>
-    <div class="sound-os-tab">
-      <button class="sound-os-btn active" id="soundAndroid" onclick="switchSoundOS('android')">🤖 Android</button>
-      <button class="sound-os-btn" id="soundIphone" onclick="switchSoundOS('iphone')">🍎 iPhone</button>
-    </div>
-    <div class="sound-steps show" id="soundStepsAndroid">
-      <div class="sound-step"><div class="sound-num">1</div><div class="sound-text">After tapping <strong>"+ Add to Calendar"</strong>, Google Calendar opens with the event already filled in</div></div>
-      <div class="sound-step"><div class="sound-num">2</div><div class="sound-text">Scroll down on the event page to find <strong>"Add notification"</strong></div></div>
-      <div class="sound-step"><div class="sound-num">3</div><div class="sound-text">Tap the dropdown that says <strong>"Notification"</strong> and change it to <strong>"Alarm"</strong> — this makes a sound</div></div>
-      <div class="sound-step"><div class="sound-num">4</div><div class="sound-text">Set the time — choose <strong>"1 week before"</strong> for your first reminder. Tap <strong>"Add notification"</strong> again and add <strong>"1 day before"</strong> as a second reminder.</div></div>
-      <div class="sound-step"><div class="sound-num">5</div><div class="sound-text">Tap <strong>Save</strong> ✅ — your phone will now ring with an alarm before every vaccine appointment</div></div>
-      <div class="sound-step"><div class="sound-num">6</div><div class="sound-text">Also go to your phone <strong>Settings → Apps → Google Calendar → Notifications</strong> and make sure notifications are turned ON and set to <strong>"High importance"</strong></div></div>
-    </div>
-    <div class="sound-steps" id="soundStepsIphone">
-      <div class="sound-step"><div class="sound-num">1</div><div class="sound-text">After tapping <strong>"+ Add to Calendar"</strong>, Google Calendar opens with the event filled in</div></div>
-      <div class="sound-step"><div class="sound-num">2</div><div class="sound-text">Tap <strong>"Add alert"</strong> on the event page</div></div>
-      <div class="sound-step"><div class="sound-num">3</div><div class="sound-text">Select <strong>"1 week before"</strong> — then tap <strong>"Add another alert"</strong> and select <strong>"1 day before"</strong></div></div>
-      <div class="sound-step"><div class="sound-num">4</div><div class="sound-text">Tap <strong>Save</strong> — the alerts will appear as iPhone notifications with sound</div></div>
-      <div class="sound-step"><div class="sound-num">5</div><div class="sound-text">To ensure sound: go to <strong>iPhone Settings → Notifications → Google Calendar</strong> → turn on <strong>Allow Notifications</strong> and set <strong>Sounds to ON</strong></div></div>
-      <div class="sound-step"><div class="sound-num">6</div><div class="sound-text">⚠️ iPhone tip: Calendar alerts on iPhone play sound even on silent mode — but only if you go to <strong>Settings → Sounds → Calendar Alerts</strong> and select a ringtone</div></div>
-    </div>
-    <button class="close-sound" onclick="closeSoundModal()">Got it — close this</button>
-  </div>
-</div>
-
-<!-- ══ CONSENT SCREEN ══ -->
+<!-- CONSENT SCREEN -->
 <div id="consentScreen">
   <div class="consent-hero">
     <p class="brand">MamaShield · Blessing's Vestule</p>
@@ -301,19 +255,19 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
   <div class="disclaimer">
     <div class="disclaimer-title">⚕️ Medical Disclaimer</div>
     <div class="disc-body">
-      <p><strong>MamaShield is not a medical service.</strong> It is a personal scheduling and reminder tool to help you track your baby's Nigerian NPI immunization appointments.</p>
-      <p>MamaShield does <strong>not</strong> provide medical advice, diagnoses, or treatment recommendations. All vaccine schedule information is sourced directly from Nigeria's <strong>National Programme on Immunization (NPI) 2025–2026 schedule</strong>, published by the NPHCDA.</p>
-      <p>MamaShield is <strong>not affiliated with</strong> the Nigerian Medical Association (NMA), the Medical and Dental Council of Nigeria (MDCN), or the NPHCDA.</p>
-      <p><strong>Always consult a qualified healthcare professional</strong> for all medical decisions regarding your baby's health. If your baby is unwell, seek immediate medical attention.</p>
+      <p><strong>MamaShield is not a medical service.</strong> It is a personal scheduling tool to help you track your baby's Nigerian NPI immunization appointments.</p>
+      <p>MamaShield does <strong>not</strong> provide medical advice, diagnoses, or treatment recommendations. All vaccine schedule information is sourced from Nigeria's <strong>National Programme on Immunization (NPI) 2025–2026 schedule</strong>, published by the NPHCDA.</p>
+      <p>MamaShield is <strong>not affiliated with</strong> the NMA, MDCN, or NPHCDA. <strong>Always consult a qualified healthcare professional</strong> for all medical decisions. If your baby is unwell, seek immediate medical attention.</p>
     </div>
   </div>
   <div class="privacy-box">
     <div class="privacy-title">🔒 Your Data Privacy — Nigeria Data Protection Act 2023</div>
     <div class="priv-body">
       <p>In compliance with the <strong>Nigeria Data Protection Act (NDPA) 2023</strong>:</p>
-      <p><strong>What we collect:</strong> Baby's name, date of birth, sex, and optionally blood group, mother's name, and clinic name.</p>
-      <p><strong>Where your data is stored:</strong> <strong>Nowhere.</strong> Everything stays only on your device during this session. MamaShield does not transmit, store, or share your data on any server. When you close this page, your data is gone.</p>
-      <p><strong>Your rights:</strong> You may withdraw consent at any time by closing this page.</p>
+      <p><strong>What we collect:</strong> Baby's name, date of birth, sex, blood group (optional), mother's name (optional), and clinic name (optional).</p>
+      <p><strong>Where your data is stored:</strong> <strong>Only on your device.</strong> MamaShield uses your phone's secure local app storage (IndexedDB). Your data is never transmitted to any server. It persists on your device between sessions and survives browser cache clearing.</p>
+      <p><strong>To erase your data:</strong> Use the "Clear my data" button inside the tracker at any time.</p>
+      <p><strong>Your rights under NDPA 2023:</strong> You may withdraw consent and erase your data at any time.</p>
       <p><strong>Data Controller:</strong> Blessing's Vestule · blessingsvestule@gmail.com</p>
     </div>
   </div>
@@ -322,28 +276,29 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
     <div class="consent-checks">
       <label class="check-row"><input type="checkbox" id="c1" onchange="checkConsent()"/><span class="check-label">I understand that <strong>MamaShield is not a medical service</strong> and does not replace a qualified healthcare professional.</span></label>
       <label class="check-row"><input type="checkbox" id="c2" onchange="checkConsent()"/><span class="check-label">I understand the vaccine schedule is based on the <strong>Nigerian NPI 2025–2026 schedule</strong> and I will confirm dates with my doctor or health centre.</span></label>
-      <label class="check-row"><input type="checkbox" id="c3" onchange="checkConsent()"/><span class="check-label">I <strong>freely consent</strong> to entering my baby's details and understand data is stored only on my device and not shared with any third party.</span></label>
-      <label class="check-row"><input type="checkbox" id="c4" onchange="checkConsent()"/><span class="check-label">I understand I can <strong>withdraw consent at any time</strong> by closing this page and no data is retained.</span></label>
+      <label class="check-row"><input type="checkbox" id="c3" onchange="checkConsent()"/><span class="check-label">I <strong>freely consent</strong> to entering my baby's details. I understand my data is stored only on my device using secure local storage and is never shared with any third party.</span></label>
+      <label class="check-row"><input type="checkbox" id="c4" onchange="checkConsent()"/><span class="check-label">I understand I can <strong>erase my data at any time</strong> using the "Clear my data" button inside the tracker.</span></label>
     </div>
     <button class="btn btn-teal" id="proceedBtn" onclick="proceedToSetup()" disabled>I Agree — Open My Baby's Tracker →</button>
   </div>
 </div>
 
-<!-- ══ SETUP SCREEN ══ -->
+<!-- SETUP SCREEN -->
 <div id="setupScreen">
   <div class="setup-hero">
     <p class="brand">MamaShield · Blessing's Vestule</p>
-    <h1>One tap.<br/><em>Everything else is automatic.</em></h1>
-    <p>Enter your baby's details once. Every vaccine date, colour, and status updates itself — you only tap when a vaccine has been given.</p>
+    <h1>Your baby's tracker.<br/><em>Remembers everything.</em></h1>
+    <p>Enter your baby's details once — saved permanently on your phone. Every vaccine date calculates automatically. Just tap when a vaccine is given.</p>
   </div>
   <div class="save-prompt">
     <div style="font-size:1.4rem;flex-shrink:0">📱</div>
-    <div class="save-prompt-text"><strong>Save this to your phone home screen first</strong> so you can open it with one tap anytime — like an app.</div>
+    <div class="save-prompt-text"><strong>Save to your phone home screen first</strong> so your baby's data is always accessible with one tap.</div>
     <button class="save-prompt-btn" onclick="showSaveModal()">How to save</button>
   </div>
   <div class="card">
     <p class="card-title">Your baby's details</p>
-    <p class="card-sub">Fill these in once — every vaccine date populates automatically from the date of birth.</p>
+    <p class="card-sub">Fill in once — saved permanently on your phone. You will never need to re-enter these.</p>
+    <div id="storageNotice" class="storage-notice">✅ Welcome back! Your baby's data has been restored from your device.</div>
     <div class="field"><label>Baby's name</label><input type="text" id="sName" placeholder="e.g. Adaeze, Emeka, Fatima…" maxlength="30"/></div>
     <div class="field-row">
       <div class="field"><label>Date of birth</label><input type="date" id="sDob" max=""/></div>
@@ -364,7 +319,7 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
   </div>
 </div>
 
-<!-- ══ TRACKER SCREEN ══ -->
+<!-- TRACKER SCREEN -->
 <div id="tracker">
   <div class="t-header neutral" id="tHeader">
     <div class="t-header-inner">
@@ -385,26 +340,39 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
     <div class="sum upcoming"><div class="sum-n" id="sPending">0</div><div class="sum-l">Upcoming</div></div>
   </div>
 
-  <!-- CALENDAR + SOUND SECTION -->
-  <div class="cal-section">
-    <div class="sound-banner">
-      <div style="font-size:1.5rem;flex-shrink:0">🔔</div>
-      <div class="sound-banner-text"><strong>Important — set sound reminders!</strong> Adding to Google Calendar alone is not enough. Tap here to learn how to make your phone ring with sound before every vaccine appointment.</div>
-      <button class="sound-banner-btn" onclick="showSoundModal()">How to set sound</button>
-    </div>
-    <div class="cal-card">
-      <p class="cal-title">Add vaccine appointments to Google Calendar</p>
-      <p class="cal-sub">Tap any button below to open Google Calendar pre-filled with that appointment. Then follow the sound reminder guide above to make sure your phone alerts you with sound.</p>
-      <div class="gcal-list" id="gcalList"></div>
+  <!-- LOCKED CALENDAR SECTION -->
+  <div class="locked-section">
+    <div class="locked-card">
+      <p class="locked-title">📅 Never miss a vaccine date</p>
+      <p class="locked-sub">Add every appointment to your Google Calendar with automatic sound alerts — 7 days and 1 day before each vaccine. Your phone reminds you so you never have to remember.</p>
+      <div class="locked-features">
+        <div class="locked-feature"><span class="locked-feature-icon">🔔</span><span>One-tap Google Calendar reminders for every vaccine</span></div>
+        <div class="locked-feature"><span class="locked-feature-icon">🔊</span><span>Sound alerts that ring even on silent mode</span></div>
+        <div class="locked-feature"><span class="locked-feature-icon">📋</span><span>4-page printable tracker — permanent paper record</span></div>
+        <div class="locked-feature"><span class="locked-feature-icon">📖</span><span>Missed vaccine catch-up guide</span></div>
+        <div class="locked-feature"><span class="locked-feature-icon">📝</span><span>Vaccine reactions log and doctor visit notes</span></div>
+      </div>
+      <!-- Blurred preview of calendar buttons -->
+      <div class="locked-blur">
+        <div class="locked-blur-row"><span class="locked-blur-text">At Birth — vaccines due</span><span class="locked-blur-btn">+ Add to Calendar</span></div>
+        <div class="locked-blur-row"><span class="locked-blur-text">6 Weeks — vaccines due</span><span class="locked-blur-btn">+ Add to Calendar</span></div>
+        <div class="locked-blur-row"><span class="locked-blur-text">10 Weeks — vaccines due</span><span class="locked-blur-btn">+ Add to Calendar</span></div>
+      </div>
+      <button class="unlock-btn" onclick="window.open('SELAR_PAID_LINK_HERE','_blank')">🔓 Unlock Full MamaShield Bundle →</button>
+      <p class="unlock-price">₦2,500 on Selar · Instant access · One-time payment</p>
     </div>
   </div>
 
   <div class="tracker-disclaimer">⚕️ MamaShield is a scheduling tool only — not a medical service. Always confirm vaccine dates with your paediatrician or nearest government health centre. Based on Nigerian NPI 2025–2026 schedule (NPHCDA).</div>
   <div class="t-footer" id="tFooter"></div>
-  <div style="padding:0 1rem 2rem;max-width:560px;margin:0 auto"><button class="btn btn-outline" onclick="reset()">← New baby / start over</button></div>
+  <div style="padding:0 1rem 1rem;max-width:560px;margin:0 auto;display:flex;gap:10px;flex-direction:column">
+    <button class="btn btn-outline" onclick="editProfile()">✏️ Edit baby's details</button>
+    <button class="btn" style="background:var(--missed-bg);color:var(--missed);border:1px solid var(--missed-border)" onclick="clearData()">🗑️ Clear my data</button>
+  </div>
 </div>
 
 <script>
+// ── Vaccine schedule ──
 const VAX_BASE=[
   {age:"At Birth",days:0,name:"BCG",protects:"Tuberculosis (TB)"},
   {age:"At Birth",days:0,name:"OPV0 — Oral Polio",protects:"Polio"},
@@ -434,33 +402,89 @@ const VAX_GIRL=[
   {age:"9 Years (Girls)",days:3287,name:"HPV Vaccine — Dose 1",protects:"Cervical cancer prevention — girls only",hpv:true},
   {age:"9 Years (Girls)",days:3377,name:"HPV Vaccine — Dose 2",protects:"Cervical cancer prevention (6 months after dose 1)",hpv:true},
 ];
+
+// ── State ──
 let VAX=[],given=[],hospitals=[],DOB=null,gender='';
+let DB=null;
+const DB_NAME='MamaShieldDB',DB_VERSION=1,STORE='babyData';
+
+// ── IndexedDB ──
+function openDB(){
+  return new Promise((resolve,reject)=>{
+    const req=indexedDB.open(DB_NAME,DB_VERSION);
+    req.onupgradeneeded=e=>{
+      const db=e.target.result;
+      if(!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE,{keyPath:'id'});
+    };
+    req.onsuccess=e=>{resolve(e.target.result);};
+    req.onerror=e=>{reject(e);};
+  });
+}
+
+async function saveToDB(data){
+  if(!DB) DB=await openDB();
+  return new Promise((resolve,reject)=>{
+    const tx=DB.transaction(STORE,'readwrite');
+    tx.objectStore(STORE).put({id:'babyProfile',...data});
+    tx.oncomplete=()=>resolve();
+    tx.onerror=e=>reject(e);
+  });
+}
+
+async function loadFromDB(){
+  if(!DB) DB=await openDB();
+  return new Promise((resolve,reject)=>{
+    const tx=DB.transaction(STORE,'readonly');
+    const req=tx.objectStore(STORE).get('babyProfile');
+    req.onsuccess=e=>resolve(e.target.result);
+    req.onerror=e=>reject(e);
+  });
+}
+
+async function clearDB(){
+  if(!DB) DB=await openDB();
+  return new Promise((resolve,reject)=>{
+    const tx=DB.transaction(STORE,'readwrite');
+    tx.objectStore(STORE).clear();
+    tx.oncomplete=()=>resolve();
+    tx.onerror=e=>reject(e);
+  });
+}
+
+// ── Helpers ──
 const MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const addD=(d,n)=>{const r=new Date(d);r.setDate(r.getDate()+n);return r;};
 const fmt=d=>`${d.getDate()} ${MO[d.getMonth()]} ${d.getFullYear()}`;
-const fmtGCal=d=>`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
 const today=()=>{const t=new Date();t.setHours(0,0,0,0);return t;};
 const dL=due=>Math.round((due-today())/86400000);
 
-// Modals
+function getState(i){
+  if(given[i]) return 'given';
+  const dl=dL(addD(DOB,VAX[i].days));
+  if(dl<0) return 'missed';
+  if(dl<=14) return 'soon';
+  return 'future';
+}
+
+function chip(state,dueDate){
+  const dl=dL(dueDate);
+  if(state==='given') return`<span class="vstatus given">✓ Given</span>`;
+  if(state==='missed') return`<span class="vstatus missed">⚠️ Overdue — was due ${fmt(dueDate)}</span>`;
+  if(state==='soon') return dl===0?`<span class="vstatus soon">📅 Due TODAY</span>`:`<span class="vstatus soon">📅 Due in ${dl} day${dl>1?'s':''} — ${fmt(dueDate)}</span>`;
+  return`<span class="vstatus future">Due ${fmt(dueDate)}</span>`;
+}
+
+// ── Modals ──
 function showSaveModal(){document.getElementById('saveModal').classList.add('open')}
 function closeSaveModal(){document.getElementById('saveModal').classList.remove('open')}
-function showSoundModal(){document.getElementById('soundModal').classList.add('open')}
-function closeSoundModal(){document.getElementById('soundModal').classList.remove('open')}
 function switchOS(os){
   document.getElementById('osAndroid').className='os-btn'+(os==='android'?' active':'');
   document.getElementById('osIphone').className='os-btn'+(os==='iphone'?' active':'');
   document.getElementById('stepsAndroid').className='os-steps'+(os==='android'?' show':'');
   document.getElementById('stepsIphone').className='os-steps'+(os==='iphone'?' show':'');
 }
-function switchSoundOS(os){
-  document.getElementById('soundAndroid').className='sound-os-btn'+(os==='android'?' active':'');
-  document.getElementById('soundIphone').className='sound-os-btn'+(os==='iphone'?' active':'');
-  document.getElementById('soundStepsAndroid').className='sound-steps'+(os==='android'?' show':'');
-  document.getElementById('soundStepsIphone').className='sound-steps'+(os==='iphone'?' show':'');
-}
 
-// PWA install prompt
+// ── PWA install ──
 let deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',e=>{
   e.preventDefault();deferredPrompt=e;
@@ -471,47 +495,60 @@ document.querySelector('.install-btn').addEventListener('click',()=>{
   else showSaveModal();
 });
 
-function checkConsent(){const all=['c1','c2','c3','c4'].every(id=>document.getElementById(id).checked);document.getElementById('proceedBtn').disabled=!all;}
-function proceedToSetup(){document.getElementById('consentScreen').style.display='none';document.getElementById('setupScreen').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
-function selectGender(g){gender=g;document.getElementById('btnGirl').className='gender-btn girl'+(g==='girl'?' selected':'');document.getElementById('btnBoy').className='gender-btn boy'+(g==='boy'?' selected':'');}
-function getState(i){if(given[i])return'given';const dl=dL(addD(DOB,VAX[i].days));if(dl<0)return'missed';if(dl<=14)return'soon';return'future';}
-function chip(state,dueDate){const dl=dL(dueDate);if(state==='given')return`<span class="vstatus given">✓ Given</span>`;if(state==='missed')return`<span class="vstatus missed">⚠️ Overdue — was due ${fmt(dueDate)}</span>`;if(state==='soon')return dl===0?`<span class="vstatus soon">📅 Due TODAY</span>`:`<span class="vstatus soon">📅 Due in ${dl} day${dl>1?'s':''} — ${fmt(dueDate)}</span>`;return`<span class="vstatus future">Due ${fmt(dueDate)}</span>`;}
-
-function makeGCalURL(babyName,age,dueDate,vaccines,note){
-  const start=fmtGCal(dueDate),end=fmtGCal(addD(dueDate,1));
-  const details=`Vaccines: ${vaccines}\n\nNote: ${note}\n\n⚠️ IMPORTANT — Set this as an ALARM (not just notification) so your phone makes a sound.\n\nBring:\n• Baby's vaccination card\n• Change of clothes\n\nAll NPI vaccines are FREE at government health centres in Nigeria.\n\nMamaShield · Blessing's Vestule`;
-  const p=new URLSearchParams({action:'TEMPLATE',text:`💉 ${babyName} — ${age} Vaccines`,dates:`${start}/${end}`,details,location:'Your nearest government health centre / PHC'});
-  return`https://calendar.google.com/calendar/render?${p.toString()}`;
+// ── Consent ──
+function checkConsent(){
+  const all=['c1','c2','c3','c4'].every(id=>document.getElementById(id).checked);
+  document.getElementById('proceedBtn').disabled=!all;
 }
 
-function buildGCalList(babyName){
-  const groups={};
-  VAX.forEach((v,i)=>{if(!groups[v.age])groups[v.age]=[];groups[v.age].push(i);});
-  const list=document.getElementById('gcalList');list.innerHTML='';
-  Object.entries(groups).forEach(([age,idxs])=>{
-    const dueDate=addD(DOB,VAX[idxs[0]].days);
-    const allGiven=idxs.every(i=>given[i]);
-    if(allGiven)return;
-    const vaccines=idxs.map(i=>VAX[i].name).join(', ');
-    const note=`Allow 1–2 hours. Confirm clinic is open before visiting. Baby may have mild fever after some vaccines — paracetamol drops are safe.`;
-    const url=makeGCalURL(babyName,age,dueDate,vaccines,note);
-    const row=document.createElement('div');row.className='gcal-row';row.id=`gcal-${age.replace(/[\s()]/g,'-')}`;
-    row.innerHTML=`<div class="gcal-info"><div class="gcal-age">${age}</div><div class="gcal-date">${fmt(dueDate)}</div></div><a class="gcal-btn" href="${url}" target="_blank" onclick="markGCalAdded(this)">+ Add to Calendar</a>`;
-    list.appendChild(row);
-  });
+async function proceedToSetup(){
+  document.getElementById('consentScreen').style.display='none';
+  document.getElementById('setupScreen').style.display='block';
+  // Try to load saved data
+  try{
+    const saved=await loadFromDB();
+    if(saved && saved.babyName){
+      document.getElementById('sName').value=saved.babyName||'';
+      document.getElementById('sDob').value=saved.dob||'';
+      document.getElementById('sBlood').value=saved.blood||'';
+      document.getElementById('sMum').value=saved.mumName||'';
+      document.getElementById('sClinic').value=saved.clinic||'';
+      if(saved.gender) selectGender(saved.gender);
+      document.getElementById('storageNotice').classList.add('show');
+    }
+  }catch(e){console.log('No saved data');}
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function markGCalAdded(btn){setTimeout(()=>{btn.textContent='✅ Added';btn.classList.add('added');},400);}
+function selectGender(g){
+  gender=g;
+  document.getElementById('btnGirl').className='gender-btn girl'+(g==='girl'?' selected':'');
+  document.getElementById('btnBoy').className='gender-btn boy'+(g==='boy'?' selected':'');
+}
 
-function launch(){
+async function launch(){
   const name=document.getElementById('sName').value.trim();
   const dobV=document.getElementById('sDob').value;
   if(!name){alert("Please enter your baby's name.");return;}
   if(!dobV){alert("Please enter your baby's date of birth.");return;}
   if(!gender){alert("Please select the sex of your baby.");return;}
+
   DOB=new Date(dobV+'T00:00:00');
   VAX=[...VAX_BASE,...(gender==='girl'?VAX_GIRL:[])];
-  given=new Array(VAX.length).fill(false);hospitals=new Array(VAX.length).fill('');
+  given=new Array(VAX.length).fill(false);
+  hospitals=new Array(VAX.length).fill('');
+
+  // Save profile to IndexedDB
+  try{
+    await saveToDB({
+      babyName:name,dob:dobV,gender,
+      blood:document.getElementById('sBlood').value.trim(),
+      mumName:document.getElementById('sMum').value.trim(),
+      clinic:document.getElementById('sClinic').value.trim(),
+      givenState:given,hospitalState:hospitals
+    });
+  }catch(e){console.log('Save error:',e);}
+
   const icon=gender==='girl'?'👧':'👦';
   const blood=document.getElementById('sBlood').value.trim();
   const mum=document.getElementById('sMum').value.trim();
@@ -519,7 +556,8 @@ function launch(){
   document.getElementById('tDob').textContent=`Born ${fmt(DOB)}${blood?' · '+blood:''}`;
   document.getElementById('tHeader').className=`t-header ${gender}`;
   document.getElementById('tFooter').innerHTML=`MamaShield · Blessing's Vestule 🛡️<br/>Nigerian NPI Schedule 2025–2026${mum?'<br/>Mum: '+mum:''}`;
-  buildCards();buildGCalList(name);
+
+  buildCards();
   document.getElementById('setupScreen').style.display='none';
   document.getElementById('tracker').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
@@ -527,64 +565,145 @@ function launch(){
 
 function buildCards(){
   const body=document.getElementById('tBody');body.innerHTML='';
-  const groups={};VAX.forEach((v,i)=>{if(!groups[v.age])groups[v.age]=[];groups[v.age].push(i);});
+  const groups={};
+  VAX.forEach((v,i)=>{if(!groups[v.age])groups[v.age]=[];groups[v.age].push(i);});
   Object.entries(groups).forEach(([age,idxs])=>{
     const dueDate=addD(DOB,VAX[idxs[0]].days);
-    const allGiven=idxs.every(i=>given[i]),anyMissed=idxs.some(i=>getState(i)==='missed'),anySoon=idxs.some(i=>getState(i)==='soon');
+    const allGiven=idxs.every(i=>given[i]);
+    const anyMissed=idxs.some(i=>getState(i)==='missed');
+    const anySoon=idxs.some(i=>getState(i)==='soon');
     let ageStatus='';
-    if(allGiven)ageStatus=`<span style="font-size:11px;font-weight:700;color:var(--given);margin-left:auto">✓ All given</span>`;
-    else if(anyMissed)ageStatus=`<span style="font-size:11px;font-weight:700;color:var(--missed);margin-left:auto">⚠️ Overdue</span>`;
-    else if(anySoon)ageStatus=`<span style="font-size:11px;font-weight:700;color:var(--soon);margin-left:auto">Due soon</span>`;
-    const grp=document.createElement('div');grp.className='age-group';grp.id=`grp-${age.replace(/[\s()]/g,'-')}`;
+    if(allGiven) ageStatus=`<span style="font-size:11px;font-weight:700;color:var(--given);margin-left:auto">✓ All given</span>`;
+    else if(anyMissed) ageStatus=`<span style="font-size:11px;font-weight:700;color:var(--missed);margin-left:auto">⚠️ Overdue</span>`;
+    else if(anySoon) ageStatus=`<span style="font-size:11px;font-weight:700;color:var(--soon);margin-left:auto">Due soon</span>`;
+    const grp=document.createElement('div');
+    grp.className='age-group';grp.id=`grp-${age.replace(/[\s()]/g,'-')}`;
     grp.innerHTML=`<div class="age-header"><span class="age-pill ${gender}">${age}</span><span class="age-date">${fmt(dueDate)}</span>${ageStatus}</div>`;
     if(VAX[idxs[0]].hpv){const n=document.createElement('div');n.className='hpv-note';n.textContent='👧 Girls only. Protects against cervical cancer. Free at government health centres. Confirm with your doctor.';grp.appendChild(n);}
     idxs.forEach(i=>{
       const v=VAX[i],state=getState(i),dd=addD(DOB,v.days);
       const card=document.createElement('div');card.className=`vcard ${state}`;card.id=`vc${i}`;
-      card.innerHTML=`<button class="give-btn" id="btn${i}" onclick="tapGiven(${i})" title="Tap when given">${given[i]?'✓':'💉'}</button><div class="vinfo"><div class="vname">${v.name}</div><div class="vprotects">${v.protects}</div><div id="chip${i}">${chip(state,dd)}</div><div class="hosp-wrap ${given[i]?'open':''}" id="hw${i}"><input class="hosp-input" type="text" placeholder="Which clinic gave this? (optional)" value="${hospitals[i]}" onchange="hospitals[${i}]=this.value" id="hi${i}"/></div></div>`;
+      card.innerHTML=`<button class="give-btn" id="btn${i}" onclick="tapGiven(${i})" title="Tap when given">${given[i]?'✓':'💉'}</button><div class="vinfo"><div class="vname">${v.name}</div><div class="vprotects">${v.protects}</div><div id="chip${i}">${chip(state,dd)}</div><div class="hosp-wrap ${given[i]?'open':''}" id="hw${i}"><input class="hosp-input" type="text" placeholder="Which clinic gave this? (optional)" value="${hospitals[i]}" onchange="hospitals[${i}]=this.value;saveState()" id="hi${i}"/></div></div>`;
       grp.appendChild(card);
     });
     body.appendChild(grp);
-  });updateSummary();
+  });
+  updateSummary();
 }
 
-function tapGiven(i){
+async function tapGiven(i){
   given[i]=!given[i];
   const state=getState(i),dd=addD(DOB,VAX[i].days);
   const card=document.getElementById(`vc${i}`);
   card.className=`vcard ${state}`;
   document.getElementById(`btn${i}`).textContent=given[i]?'✓':'💉';
   document.getElementById(`chip${i}`).innerHTML=chip(state,dd);
-  const hw=document.getElementById(`hw${i}`);hw.className=`hosp-wrap ${given[i]?'open':''}`;
-  if(given[i])setTimeout(()=>{const inp=document.getElementById(`hi${i}`);if(inp)inp.focus();},320);
-  const age=VAX[i].age,idxs=VAX.map((v,j)=>v.age===age?j:-1).filter(j=>j>=0);
+  const hw=document.getElementById(`hw${i}`);
+  hw.className=`hosp-wrap ${given[i]?'open':''}`;
+  if(given[i]) setTimeout(()=>{const inp=document.getElementById(`hi${i}`);if(inp)inp.focus();},320);
+  const age=VAX[i].age;
+  const idxs=VAX.map((v,j)=>v.age===age?j:-1).filter(j=>j>=0);
   const allGiven=idxs.every(j=>given[j]),anyMissed=idxs.some(j=>getState(j)==='missed'),anySoon=idxs.some(j=>getState(j)==='soon');
   const grp=document.getElementById(`grp-${age.replace(/[\s()]/g,'-')}`);
-  if(grp){const spans=grp.querySelector('.age-header').querySelectorAll('span');const last=spans[spans.length-1];
-    if(allGiven)last.outerHTML=`<span style="font-size:11px;font-weight:700;color:var(--given);margin-left:auto">✓ All given</span>`;
-    else if(anyMissed)last.outerHTML=`<span style="font-size:11px;font-weight:700;color:var(--missed);margin-left:auto">⚠️ Overdue</span>`;
-    else if(anySoon)last.outerHTML=`<span style="font-size:11px;font-weight:700;color:var(--soon);margin-left:auto">Due soon</span>`;
-    else last.outerHTML=`<span style="font-size:11px;font-weight:700;color:transparent;margin-left:auto">—</span>`;}
-  // refresh gcal list
-  const nameEl=document.getElementById('tName');if(nameEl)buildGCalList(nameEl.textContent.replace(/👧|👦/g,'').replace("'s Vaccine Tracker",'').trim());
+  if(grp){
+    const spans=grp.querySelector('.age-header').querySelectorAll('span');
+    const last=spans[spans.length-1];
+    if(allGiven) last.outerHTML=`<span style="font-size:11px;font-weight:700;color:var(--given);margin-left:auto">✓ All given</span>`;
+    else if(anyMissed) last.outerHTML=`<span style="font-size:11px;font-weight:700;color:var(--missed);margin-left:auto">⚠️ Overdue</span>`;
+    else if(anySoon) last.outerHTML=`<span style="font-size:11px;font-weight:700;color:var(--soon);margin-left:auto">Due soon</span>`;
+    else last.outerHTML=`<span style="font-size:11px;font-weight:700;color:transparent;margin-left:auto">—</span>`;
+  }
   updateSummary();
+  await saveState();
 }
+
+async function saveState(){
+  try{
+    const name=document.getElementById('tName').textContent.replace(/👧|👦/g,'').replace("'s Vaccine Tracker",'').trim();
+    const dobV=document.getElementById('sDob').value;
+    await saveToDB({
+      babyName:name,dob:dobV,gender,
+      blood:document.getElementById('sBlood').value||'',
+      mumName:document.getElementById('sMum').value||'',
+      clinic:document.getElementById('sClinic').value||'',
+      givenState:given,hospitalState:hospitals
+    });
+  }catch(e){console.log('State save error:',e);}
+}
+
 function updateSummary(){
-  const g=given.filter(Boolean).length,m=VAX.filter((_,i)=>getState(i)==='missed').length,p=VAX.filter((_,i)=>!given[i]).length;
-  document.getElementById('sGiven').textContent=g;document.getElementById('sMissed').textContent=m;document.getElementById('sPending').textContent=p;
+  const g=given.filter(Boolean).length;
+  const m=VAX.filter((_,i)=>getState(i)==='missed').length;
+  const p=VAX.filter((_,i)=>!given[i]).length;
+  document.getElementById('sGiven').textContent=g;
+  document.getElementById('sMissed').textContent=m;
+  document.getElementById('sPending').textContent=p;
   document.getElementById('tProgNum').textContent=`${g} / ${VAX.length} given`;
   document.getElementById('tProgFill').style.width=`${Math.round(g/VAX.length*100)}%`;
 }
-function reset(){
-  given=[];hospitals=[];VAX=[];gender='';
-  ['sName','sDob','sMum','sClinic','sBlood'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('btnGirl').className='gender-btn girl';document.getElementById('btnBoy').className='gender-btn boy';
-  ['c1','c2','c3','c4'].forEach(id=>document.getElementById(id).checked=false);
-  document.getElementById('proceedBtn').disabled=true;
-  document.getElementById('tracker').style.display='none';document.getElementById('setupScreen').style.display='none';document.getElementById('consentScreen').style.display='block';
+
+function editProfile(){
+  document.getElementById('tracker').style.display='none';
+  document.getElementById('setupScreen').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+async function clearData(){
+  if(confirm('This will permanently erase all your baby\'s data from this device. Are you sure?')){
+    try{
+      await clearDB();
+      given=[];hospitals=[];VAX=[];gender='';DOB=null;
+      ['sName','sDob','sMum','sClinic','sBlood'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('btnGirl').className='gender-btn girl';
+      document.getElementById('btnBoy').className='gender-btn boy';
+      ['c1','c2','c3','c4'].forEach(id=>document.getElementById(id).checked=false);
+      document.getElementById('proceedBtn').disabled=true;
+      document.getElementById('tracker').style.display='none';
+      document.getElementById('setupScreen').style.display='none';
+      document.getElementById('consentScreen').style.display='block';
+      document.getElementById('storageNotice').classList.remove('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+      alert('Your data has been cleared.');
+    }catch(e){alert('Error clearing data. Please try again.');}
+  }
+}
+
+// ── Auto-load saved data on startup ──
+async function init(){
+  try{
+    DB=await openDB();
+    const saved=await loadFromDB();
+    if(saved && saved.babyName && saved.dob){
+      // Skip consent and setup — go straight to tracker
+      DOB=new Date(saved.dob+'T00:00:00');
+      gender=saved.gender||'';
+      VAX=[...VAX_BASE,...(gender==='girl'?VAX_GIRL:[])];
+      given=saved.givenState||new Array(VAX.length).fill(false);
+      hospitals=saved.hospitalState||new Array(VAX.length).fill('');
+      // Pad arrays if VAX length changed
+      while(given.length<VAX.length) given.push(false);
+      while(hospitals.length<VAX.length) hospitals.push('');
+      const icon=gender==='girl'?'👧':'👦';
+      document.getElementById('tName').innerHTML=`${icon} ${saved.babyName}'s Vaccine Tracker`;
+      document.getElementById('tDob').textContent=`Born ${fmt(DOB)}${saved.blood?' · '+saved.blood:''}`;
+      document.getElementById('tHeader').className=`t-header ${gender}`;
+      document.getElementById('tFooter').innerHTML=`MamaShield · Blessing's Vestule 🛡️<br/>Nigerian NPI Schedule 2025–2026${saved.mumName?'<br/>Mum: '+saved.mumName:''}`;
+      // Pre-fill setup fields for edit
+      document.getElementById('sName').value=saved.babyName||'';
+      document.getElementById('sDob').value=saved.dob||'';
+      document.getElementById('sBlood').value=saved.blood||'';
+      document.getElementById('sMum').value=saved.mumName||'';
+      document.getElementById('sClinic').value=saved.clinic||'';
+      if(gender) selectGender(gender);
+      buildCards();
+      document.getElementById('consentScreen').style.display='none';
+      document.getElementById('tracker').style.display='block';
+    }
+  }catch(e){console.log('Init error:',e);}
+}
+
 document.getElementById('sDob').max=new Date().toISOString().split('T')[0];
+init();
 </script>
 </body>
 </html>
