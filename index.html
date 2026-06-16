@@ -709,7 +709,7 @@ function showSetup(babyId=null) {
   document.getElementById('saveBabyBtn').textContent = babyId ? 'Update Baby\'s Profile →' : 'Save Baby\'s Profile →';
 
   // Clear fields
-  ['sName','sDob','sBlood','sMum','sClinic'].forEach(id=>document.getElementById(id).value='');
+  ['sName','sSurname','sOtherName','sDob','sBlood','sMum','sClinic'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('btnGirl').className='gender-btn girl';
   document.getElementById('btnBoy').className='gender-btn boy';
 
@@ -718,6 +718,8 @@ function showSetup(babyId=null) {
     getBaby(babyId).then(baby => {
       if(baby) {
         document.getElementById('sName').value = baby.babyName || '';
+        document.getElementById('sSurname').value = baby.surname || '';
+        document.getElementById('sOtherName').value = baby.otherName || '';
         document.getElementById('sDob').value = baby.dob || '';
         document.getElementById('sBlood').value = baby.blood || '';
         document.getElementById('sMum').value = baby.mumName || '';
