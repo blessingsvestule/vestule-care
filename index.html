@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MamaShield Baby Vaccine Tracker — Blessing's Vestule</title>
+<title>MamaShield Pro — Complete Baby Vaccine Tracker — Blessing's Vestule</title>
 <meta name="description" content="Free Nigerian baby vaccine tracker for working mums."/>
 <meta name="theme-color" content="#1A6B6B"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -312,17 +312,47 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
 <!-- ══ HOME SCREEN ══ -->
 <div id="homeScreen">
   <div class="home-hero">
-    <p class="brand">MamaShield · Blessing's Vestule</p>
-    <h1 id="homeGreeting">My Babies</h1>
-    <p>Tap a baby to open their vaccine tracker</p>
+    <p class="brand">MamaShield Pro · Blessing's Vestule</p>
+    <div style="display:inline-block;background:var(--gold);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px;letter-spacing:.05em">✨ FULL BUNDLE</div>
+    <h1 id="homeGreeting">Welcome, Mama</h1>
+    <p>Your complete MamaShield bundle — all in one place</p>
+  </div>
+
+  <!-- Bundle items - what the mum purchased -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.25rem">
+    <div style="background:#fff;border:1.5px solid var(--given-border);border-radius:14px;padding:1rem;text-align:center;cursor:pointer" onclick="scrollToBabies()">
+      <div style="font-size:1.5rem;margin-bottom:4px">👶</div>
+      <div style="font-size:12px;font-weight:700;color:var(--given)">Baby Trackers</div>
+      <div style="font-size:11px;color:var(--soft);margin-top:2px">Unlimited babies</div>
+    </div>
+    <div style="background:#fff;border:1.5px solid var(--soon-border);border-radius:14px;padding:1rem;text-align:center;cursor:pointer" onclick="scrollToCalendar()">
+      <div style="font-size:1.5rem;margin-bottom:4px">📅</div>
+      <div style="font-size:12px;font-weight:700;color:var(--soon)">Calendar Reminders</div>
+      <div style="font-size:11px;color:var(--soft);margin-top:2px">Sound alerts</div>
+    </div>
+    <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1rem;text-align:center;cursor:pointer" onclick="window.open('PDF_TRACKER_LINK_HERE','_blank')">
+      <div style="font-size:1.5rem;margin-bottom:4px">📋</div>
+      <div style="font-size:12px;font-weight:700;color:var(--teal)">PDF Tracker</div>
+      <div style="font-size:11px;color:var(--soft);margin-top:2px">Download & print</div>
+    </div>
+    <div style="background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1rem;text-align:center;cursor:pointer" onclick="window.open('PDF_GUIDE_LINK_HERE','_blank')">
+      <div style="font-size:1.5rem;margin-bottom:4px">📖</div>
+      <div style="font-size:12px;font-weight:700;color:var(--teal)">Vaccine Guide</div>
+      <div style="font-size:11px;color:var(--soft);margin-top:2px">Missed vaccine guide</div>
+    </div>
+  </div>
+
+  <div style="border-bottom:1px solid var(--border);margin-bottom:1.25rem;padding-bottom:.5rem">
+    <p style="font-size:12px;font-weight:700;color:var(--soft);text-transform:uppercase;letter-spacing:.08em" id="babiesLabel">My Babies</p>
   </div>
 
   <div id="babiesList" class="babies-list"></div>
 
   <div id="addBabySection"></div>
 
-  <div style="margin-top:1rem">
+  <div style="margin-top:1rem;display:flex;flex-direction:column;gap:8px">
     <button class="btn btn-outline" onclick="showSaveModal()" style="font-size:13px;padding:10px">📱 Save to phone home screen</button>
+    <button class="btn" style="background:var(--missed-bg);color:var(--missed);border:1px solid var(--missed-border);font-size:12px;padding:8px" onclick="clearAllData()">🗑️ Clear all data and start fresh</button>
   </div>
 </div>
 
@@ -364,7 +394,14 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
       </div>
     </div>
     <div class="field-row">
-      <div class="field"><label>Mother's name <span class="opt">(optional)</span></label><input type="text" id="sMum" placeholder="Your name" maxlength="30"/></div>
+      <div class="field">
+        <label>Mother's name <span class="opt">(optional)</span></label>
+        <div style="position:relative">
+          <input type="text" id="sMum" placeholder="Your name" maxlength="30"/>
+          <button id="mumEditBtn" onclick="unlockMumName()" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--teal);font-size:11px;font-weight:700;cursor:pointer;padding:4px 8px;background:var(--teal-light);border-radius:6px">Edit</button>
+        </div>
+        <p id="mumLockNote" style="display:none;font-size:11px;color:var(--soft);margin-top:4px">Your name is saved across all baby profiles</p>
+      </div>
       <div class="field"><label>Clinic <span class="opt">(optional)</span></label><input type="text" id="sClinic" placeholder="Clinic name" maxlength="40"/></div>
     </div>
     <div class="notebox">💡 All NPI vaccines are <strong>FREE</strong> at government health centres. Girls also receive HPV vaccine at age 9.</div>
@@ -405,25 +442,17 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
     <div class="sum upcoming"><div class="sum-n" id="sPending">0</div><div class="sum-l">Upcoming</div></div>
   </div>
 
-  <!-- LOCKED CALENDAR -->
+  <!-- FULL CALENDAR SECTION - PRO VERSION -->
   <div class="locked-section">
-    <div class="locked-card">
-      <p class="locked-title">📅 Never miss a vaccine date</p>
-      <p class="locked-sub">Add every appointment to your Google Calendar with automatic sound alerts — available in the MamaShield Full Bundle.</p>
-      <div class="locked-features">
-        <div class="locked-feature"><span>🔔</span><span>One-tap Google Calendar reminders</span></div>
-        <div class="locked-feature"><span>🔊</span><span>Sound alerts — rings even on silent mode</span></div>
-        <div class="locked-feature"><span>👶</span><span>Unlimited baby profiles</span></div>
-        <div class="locked-feature"><span>📋</span><span>4-page printable tracker PDF</span></div>
-        <div class="locked-feature"><span>📖</span><span>Missed vaccine catch-up guide</span></div>
+    <div style="background:var(--gold-light);border:1.5px solid var(--soon-border);border-radius:20px;padding:1.5rem;margin-bottom:1rem">
+      <p style="font-family:DM Serif Display,serif;font-size:1.1rem;color:var(--gold);margin-bottom:.25rem">🔔 Add vaccines to Google Calendar</p>
+      <p style="font-size:12px;color:var(--mid);margin-bottom:1rem;line-height:1.55">Tap each button to open Google Calendar pre-filled with that appointment. Then set it as an <strong>Alarm</strong> so your phone makes sound.</p>
+      <div id="gcalList" style="display:flex;flex-direction:column;gap:8px;margin-bottom:1rem"></div>
+      <div style="background:#fff;border:1px solid var(--soon-border);border-radius:12px;padding:1rem">
+        <p style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">⚠️ Set sound alerts — very important</p>
+        <p style="font-size:12px;color:var(--mid);line-height:1.6;margin-bottom:8px"><strong>Android:</strong> After adding — open the event → tap "Add notification" → change "Notification" to <strong>"Alarm"</strong> → set 1 week before AND 1 day before → Save. Then go to phone Settings → Apps → Google Calendar → Notifications → set to High Importance.</p>
+        <p style="font-size:12px;color:var(--mid);line-height:1.6"><strong>iPhone:</strong> After adding — open the event → tap "Add alert" → select 1 week before AND 1 day before → Save. Go to Settings → Sounds → Calendar Alerts → select a ringtone so it rings even on silent.</p>
       </div>
-      <div class="locked-blur">
-        <div class="locked-blur-row"><span class="locked-blur-text">At Birth — vaccines due</span><span class="locked-blur-btn">+ Add to Calendar</span></div>
-        <div class="locked-blur-row"><span class="locked-blur-text">6 Weeks — vaccines due</span><span class="locked-blur-btn">+ Add to Calendar</span></div>
-        <div class="locked-blur-row"><span class="locked-blur-text">10 Weeks — vaccines due</span><span class="locked-blur-btn">+ Add to Calendar</span></div>
-      </div>
-      <button class="unlock-main-btn" onclick="window.open('SELAR_LINK_HERE','_blank')">🔓 Unlock Full MamaShield Bundle →</button>
-      <p class="unlock-price">₦2,500 on Selar · Instant access · One-time payment</p>
     </div>
   </div>
 
@@ -467,7 +496,7 @@ const VAX_GIRL=[
   {age:"9 Years (Girls)",days:3377,name:"HPV Vaccine — Dose 2",protects:"Cervical cancer prevention (6 months after dose 1)",hpv:true},
 ];
 
-const FREE_BABY_LIMIT = 1; // Free version: 1 baby only
+const FREE_BABY_LIMIT = 9999; // Pro version: unlimited babies
 const SELAR_LINK = 'SELAR_LINK_HERE'; // Replace with actual Selar link
 
 // ── State ──
@@ -481,7 +510,8 @@ let currentGender = '';
 let editingBabyId = null;
 let gender = '';
 
-const DB_NAME = 'MamaShieldDB', DB_VERSION = 2, BABIES_STORE = 'babies';
+const DB_NAME = 'MamaShieldProDB', DB_VERSION = 2, BABIES_STORE = 'babies';
+const MUM_NAME_KEY = '__mumName__';
 const MO = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const addD = (d,n) => { const r=new Date(d); r.setDate(r.getDate()+n); return r; };
 const fmt = d => `${d.getDate()} ${MO[d.getMonth()]} ${d.getFullYear()}`;
@@ -547,7 +577,9 @@ async function deleteBabyFromDB(id) {
 
 // ── Helpers ──
 function getState(i) {
-  if(currentGiven[i]) return 'given';
+  // Ensure index is within bounds
+  if(i >= currentGiven.length) return 'future';
+  if(currentGiven[i] === true) return 'given';
   const dl = dL(addD(currentDOB, currentVAX[i].days));
   if(dl < 0) return 'missed';
   if(dl <= 14) return 'soon';
@@ -652,9 +684,11 @@ async function renderHome() {
 
     const card = document.createElement('div');
     card.className = 'baby-card';
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function() { openBaby(baby.id); });
     card.innerHTML = `
       <div class="baby-avatar ${baby.gender||'neutral'}">${baby.gender==='girl'?'👧':baby.gender==='boy'?'👦':'👶'}</div>
-      <div class="baby-info" onclick="openBaby('${baby.id}')" style="cursor:pointer">
+      <div class="baby-info">
         <div class="baby-name">${baby.babyName}</div>
         <div class="baby-dob">Born ${fmt(dob)}</div>
         <div class="baby-stats">
@@ -663,9 +697,7 @@ async function renderHome() {
           ${soonCount>0?`<span class="baby-stat soon">📅 ${soonCount} due soon</span>`:''}
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
-        <div class="baby-arrow" onclick="openBaby('${baby.id}')" style="cursor:pointer">›</div>
-      </div>`;
+      <div class="baby-arrow">›</div>`;
     list.appendChild(card);
   });
 
@@ -704,12 +736,21 @@ async function renderHome() {
 function showSetup(babyId=null) {
   editingBabyId = babyId;
   gender = '';
+  // Reset mum name field state first
+  const mumInp = document.getElementById('sMum');
+  mumInp.readOnly = false;
+  mumInp.style.background = '';
+  mumInp.style.color = '';
+  document.getElementById('mumEditBtn').style.display = 'none';
+  document.getElementById('mumLockNote').style.display = 'none';
   document.getElementById('setupTitle').innerHTML = babyId ? 'Edit baby\'s <em>details</em>' : 'Add your <em>baby\'s details</em>';
   document.getElementById('setupCardTitle').textContent = babyId ? 'Edit baby\'s details' : 'Baby\'s details';
   document.getElementById('saveBabyBtn').textContent = babyId ? 'Update Baby\'s Profile →' : 'Save Baby\'s Profile →';
 
   // Clear fields
   ['sName','sDob','sBlood','sMum','sClinic'].forEach(id=>document.getElementById(id).value='');
+  // Auto-fill mum name if saved (only for new babies, not when editing)
+  if(!babyId) { setTimeout(loadMumName, 100); }
   document.getElementById('btnGirl').className='gender-btn girl';
   document.getElementById('btnBoy').className='gender-btn boy';
 
@@ -762,10 +803,13 @@ async function saveBaby() {
     createdAt: existingBaby ? existingBaby.createdAt : Date.now()
   };
 
+  // Save mum name globally for future baby profiles
+  if(baby.mumName) { await saveMumName(baby.mumName); }
   await saveBabyToDB(baby);
   editingBabyId = null;
+  gender = '';
 
-  // Go to this baby's tracker
+  // Go directly to this baby tracker
   await openBaby(id);
 }
 
@@ -791,7 +835,13 @@ async function openBaby(id) {
   document.getElementById('tHeader').className = `t-header ${currentGender||'neutral'}`;
 
   buildCards();
-  showScreen('tracker');
+  // Force show tracker, hide all others
+  document.getElementById('consentScreen').style.display = 'none';
+  document.getElementById('homeScreen').style.display = 'none';
+  document.getElementById('setupScreen').style.display = 'none';
+  document.getElementById('tracker').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+  setTimeout(buildGCalList, 300);
 }
 
 // ── BUILD VACCINE CARDS ──
@@ -858,6 +908,7 @@ async function tapGiven(i) {
   }
   updateSummary();
   await saveCurrentState();
+  setTimeout(buildGCalList, 100);
 }
 
 async function saveCurrentState() {
@@ -916,7 +967,167 @@ async function init() {
   showScreen('consentScreen');
 }
 
+
+
+async function clearAllData() {
+  if(confirm('This will permanently erase ALL baby profiles and vaccine data. Are you sure?')) {
+    try {
+      if(!DB) DB = await openDB();
+      const tx = DB.transaction(BABIES_STORE, 'readwrite');
+      tx.objectStore(BABIES_STORE).clear();
+      tx.oncomplete = () => {
+        alert('All data cleared. Starting fresh.');
+        location.reload();
+      };
+    } catch(e) {
+      location.reload();
+    }
+  }
+}
+
+
+// ── Mother name locking ──
+async function loadMumName() {
+  try {
+    const saved = await getBaby(MUM_NAME_KEY);
+    if(saved && saved.name) {
+      const inp = document.getElementById('sMum');
+      inp.value = saved.name;
+      inp.style.background = '#F0F0EC';
+      inp.style.color = 'var(--soft)';
+      inp.readOnly = true;
+      document.getElementById('mumEditBtn').style.display = 'block';
+      document.getElementById('mumLockNote').style.display = 'block';
+    }
+  } catch(e) {}
+}
+
+async function saveMumName(name) {
+  if(!name) return;
+  try {
+    await saveBabyToDB({id: MUM_NAME_KEY, name});
+  } catch(e) {}
+}
+
+function unlockMumName() {
+  const inp = document.getElementById('sMum');
+  inp.readOnly = false;
+  inp.style.background = '';
+  inp.style.color = '';
+  inp.focus();
+  document.getElementById('mumEditBtn').style.display = 'none';
+  document.getElementById('mumLockNote').style.display = 'none';
+}
+
+function scrollToBabies() {
+  document.getElementById('babiesLabel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function scrollToCalendar() {
+  // Opens first baby if exists, then scrolls to calendar
+  getAllBabies().then(babies => {
+    const real = babies.filter(b=>b.id!=='__consent__');
+    if(real.length > 0) {
+      openBaby(real[0].id).then(() => {
+        setTimeout(() => {
+          const cal = document.getElementById('gcalList');
+          if(cal) cal.scrollIntoView({behavior:'smooth', block:'start'});
+        }, 500);
+      });
+    } else {
+      alert('Please add a baby first to access calendar reminders.');
+    }
+  });
+}
+
 document.getElementById('sDob').max = new Date().toISOString().split('T')[0];
+
+// ── Google Calendar (PRO only) ──
+const fmtGCal = d => `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+
+function makeGCalURL(babyName, age, dueDate, vaccines) {
+  const start = fmtGCal(dueDate), end = fmtGCal(addD(dueDate,1));
+  const details = `Vaccines: ${vaccines}\n\n⚠️ Set this as an ALARM (not notification) so your phone makes sound.\n\nBring:\n• Baby vaccination card\n• Change of clothes\n\nAll NPI vaccines are FREE at government health centres in Nigeria.\n\nMamaShield Pro · Blessing's Vestule`;
+  const p = new URLSearchParams({action:'TEMPLATE', text:`💉 ${babyName} — ${age} Vaccines`, dates:`${start}/${end}`, details, location:'Your nearest government health centre / PHC'});
+  return `https://calendar.google.com/calendar/render?${p.toString()}`;
+}
+
+function buildGCalList() {
+  const list = document.getElementById('gcalList');
+  if(!list || !currentDOB) return;
+  list.innerHTML = '';
+  const babyName = document.getElementById('tName').textContent.replace(/👧|👦|👶/g,'').trim();
+  const groups = {};
+  currentVAX.forEach((v,i) => { if(!groups[v.age]) groups[v.age]=[]; groups[v.age].push(i); });
+
+  const upcomingRows = [];
+  const givenRows = [];
+
+  Object.entries(groups).forEach(([age,idxs]) => {
+    const allGiven = idxs.every(i=>currentGiven[i]);
+    const dueDate = addD(currentDOB, currentVAX[idxs[0]].days);
+    const vaccines = idxs.map(i=>currentVAX[i].name).join(', ');
+
+    if(allGiven) {
+      // Gray out - given vaccines
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 12px;background:#F4F4F2;border:1px solid #E0E0DC;border-radius:10px;opacity:0.6';
+      row.innerHTML = `
+        <div style="flex:1">
+          <div style="font-size:10px;font-weight:700;color:var(--soft);text-transform:uppercase;letter-spacing:.06em">${age}</div>
+          <div style="font-size:13px;font-weight:600;color:var(--soft);text-decoration:line-through">${fmt(dueDate)}</div>
+        </div>
+        <span style="background:var(--given-bg);color:var(--given);border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700">✓ Given</span>`;
+      givenRows.push(row);
+    } else {
+      // Active - upcoming vaccines
+      const url = makeGCalURL(babyName, age, dueDate, vaccines);
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border:1px solid var(--border);border-radius:10px';
+      row.innerHTML = `
+        <div style="flex:1">
+          <div style="font-size:10px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em">${age}</div>
+          <div style="font-size:13px;font-weight:600;color:var(--dark)">${fmt(dueDate)}</div>
+        </div>
+        <a href="${url}" target="_blank"
+          style="background:var(--teal);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-family:DM Sans,sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;text-decoration:none;transition:background .2s"
+          onclick="this.style.background='var(--given)';this.textContent='✅ Added'">
+          + Add to Calendar
+        </a>`;
+      upcomingRows.push(row);
+    }
+  });
+
+  if(upcomingRows.length === 0 && givenRows.length === 0) {
+    list.innerHTML = '<div style="text-align:center;padding:1rem;font-size:13px;color:var(--soft)">No vaccines loaded</div>';
+    return;
+  }
+
+  // Show upcoming first
+  if(upcomingRows.length > 0) {
+    const upLabel = document.createElement('p');
+    upLabel.style.cssText = 'font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';
+    upLabel.textContent = 'Upcoming appointments';
+    list.appendChild(upLabel);
+    upcomingRows.forEach(r => list.appendChild(r));
+  } else {
+    list.innerHTML += '<div style="text-align:center;padding:1rem;font-size:13px;color:var(--given);font-weight:600">✅ All vaccines have been given!</div>';
+  }
+
+  // Show given below grayed out
+  if(givenRows.length > 0) {
+    const sep = document.createElement('div');
+    sep.style.cssText = 'height:1px;background:var(--border);margin:12px 0 8px';
+    list.appendChild(sep);
+    const givenLabel = document.createElement('p');
+    givenLabel.style.cssText = 'font-size:11px;font-weight:700;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px';
+    givenLabel.textContent = 'Already given';
+    list.appendChild(givenLabel);
+    givenRows.forEach(r => list.appendChild(r));
+  }
+}
+
+// Build gcal after opening baby - integrated directly
+
 init();
 </script>
 </body>
