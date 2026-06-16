@@ -344,7 +344,18 @@ input:focus{border-color:var(--teal2);box-shadow:0 0 0 3px rgba(42,144,144,.12);
     <div class="field"><label>Baby's name</label><input type="text" id="sName" placeholder="e.g. Adaeze, Emeka, Fatima…" maxlength="30"/></div>
     <div class="field-row">
       <div class="field"><label>Date of birth</label><input type="date" id="sDob" max=""/></div>
-      <div class="field"><label>Blood group <span class="opt">(optional)</span></label><input type="text" id="sBlood" placeholder="e.g. O+" maxlength="5"/></div>
+      <div class="field"><label>Blood group <span class="opt">(optional)</span></label><select id="sBlood" style="width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:DM Sans,sans-serif;font-size:15px;color:var(--dark);background:var(--teal-pale);outline:none;-webkit-appearance:none;appearance:none">
+          <option value="">Select (optional)</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="Unknown">Unknown</option>
+        </select></div>
     </div>
     <div class="field"><label>Sex of baby</label>
       <div class="gender-toggle">
